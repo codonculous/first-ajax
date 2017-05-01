@@ -24,7 +24,8 @@ $(function () {
       var fail = 'Unable to access to pong';
       console.log(fail);
       $('#step3456').append('<p>'+fail+'</p>');
-
+    }).always(function(){
+      console.log('Request finished');
     });
 
   });
