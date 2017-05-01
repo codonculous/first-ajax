@@ -51,7 +51,23 @@ $(function () {
 
   });
 
+  $('#time').click(function() {
 
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/time',
+      method: 'GET',
+      data: {timezone : 'America/Mexico_City'},
+      dataType: 'html'
+    }).done(function(data){
+      $('#step8').append('<p>' + data + '</p>');
+    }).fail(function(){
+      var fail = 'Unable to access';
+      console.log(fail);
+      $('#step8').append('<p>'+fail+'</p>');
+    }).always(function(){
+      console.log('Request finished');
+    });
 
+  });
 
 });
