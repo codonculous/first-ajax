@@ -16,11 +16,13 @@ $(function () {
   $('#ping-pong').click(function() {
 
     $.ajax({
-      url: 'http://first-ajax-api.herokuapp.com/pong',
+      url: 'http://first-ajax-api.herokuapp.com/ping',
       method: 'GET',
       data: {},
       dataType: 'html'
-    }).fail(function(data){
+    }).done(function(data){
+      $('#step3456').append('<p>' + data + '</p>');
+    }).fail(function(){
       var fail = 'Unable to access to pong';
       console.log(fail);
       $('#step3456').append('<p>'+fail+'</p>');
