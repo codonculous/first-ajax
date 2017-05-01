@@ -16,19 +16,20 @@ $(function () {
   $('#ping-pong').click(function() {
 
     $.ajax({
-      url: 'http://first-ajax-api.herokuapp.com/ping',
+      url: 'http://first-ajax-api.herokuapp.com/pong',
       method: 'GET',
       data: {},
       dataType: 'html'
-    }).done(function(data){
-      console.log('data: ping');
-      console.log('data: pong');
-      console.log('Response Data'+ data);
-      $('#step3456').append('<p>'+data+'</p>');
+    }).fail(function(data){
+      var fail = 'Unable to access to pong';
+      console.log(fail);
+      $('#step3456').append('<p>'+fail+'</p>');
 
     });
 
   });
+
+
 
 
 });
