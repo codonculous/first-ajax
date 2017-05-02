@@ -70,4 +70,25 @@ $(function () {
 
   });
 
+  $('#car').click(function() {
+
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/a_car',
+      method: 'GET',
+      // data: {timezone : 'America/Mexico_City'},
+      dataType: 'html'
+    }).done(function(data){
+      $('#step9').append('<ul></ul>').attr('id','list');
+      $('#list').append(data);
+    }).fail(function(){
+      var fail = 'Unable to access';
+      console.log(fail);
+      $('#step9').append('<p>'+fail+'</p>');
+    }).always(function(){
+      console.log('Request finished');
+    });
+
+  });
+
+
 });
